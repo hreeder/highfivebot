@@ -20,6 +20,11 @@ def high_five(server_handler, who_from, to, message):
         send('o/')
 
 
+def join_channel(server_handler, who_from, who, channel):
+    if who == server_handler.identity.nick:
+        server_handler.channels[channel].join()
+
+
 def main():
     args = irc.get_parsed_args()
 
@@ -28,6 +33,7 @@ def main():
     irc.connect(args, line_stream, server_handler)
 
     server_handler.add_callback('privmsg', high_five)
+    server_handler.add_callback('invite', join_channel)
 
     loghandler = logbook.StderrHandler(level=logbook.DEBUG if args.debug else logbook.INFO)
 
