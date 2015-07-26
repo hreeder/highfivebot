@@ -5,9 +5,8 @@ import os.path
 from setuptools import setup
 
 install_requires = [
-    'logbook',
     'tornado',
-    'possel-server',
+    'pircel>=2.2.3',
 ]
 
 classifiers = [
