@@ -6,7 +6,7 @@ from setuptools import setup
 
 install_requires = [
     'tornado',
-    'pircel>=2.2.3',
+    'pircel',
 ]
 
 classifiers = [
